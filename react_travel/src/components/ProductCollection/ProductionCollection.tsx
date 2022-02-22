@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './ProductionCollection.module.css'
-import { Row, Col, Typography, Divider } from 'antd'
+import { Row, Col, Divider } from 'antd'
 import {} from '@ant-design/icons'
 import {ProductImage} from './ProductImage'
 
