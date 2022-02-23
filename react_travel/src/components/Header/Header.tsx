@@ -58,10 +58,11 @@ export const Header: React.FC = () => {
           </span>
           <Input.Search 
               placeholder='Please enter destination, theme or keywords'
-              className={styles['search-input']}/>
+              className={styles['search-input']}
+              onSearch={(keywords) => {navigate(`/Search/${keywords}`)}}/>
         </Layout.Header>
         <Menu mode={"horizontal"} className={styles['main-menu']}>
-          <Menu.Item key={1}>{t("header.home_page")}</Menu.Item>
+          <Menu.Item key={1} onClick={()=>{navigate('/')}}>{t("header.home_page")}</Menu.Item>
           <Menu.Item key={2}>{t("header.weekend")}</Menu.Item>
           <Menu.Item key={3}>{t("header.group")}</Menu.Item>
           <Menu.Item key={4}>{t("header.backpack")}</Menu.Item>
