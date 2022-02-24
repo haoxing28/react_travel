@@ -1,5 +1,5 @@
 import React from 'react'
-import {Header, Footer, Carousel, SideMenu, ProductCollection, BusinessPartners} from '../../components'
+import { Carousel, SideMenu, ProductCollection, BusinessPartners} from '../../components'
 import { Col, Row, Typography, Spin } from 'antd'
 import sideImage1 from '../../assets/images/sider_2019_02-04-2.png'
 import sideImage2 from '../../assets/images/sider_2019_02-04.png'
@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import {requestDataAction} from '../../redux/recommendProducts/recommendProductsActions'
 import { useSelector } from '../../redux/hooks';
+import {MainLayout} from '../../layouts/mainLayout'
 
 export const HomePage: React.FC = () => {
   
@@ -42,17 +43,16 @@ export const HomePage: React.FC = () => {
     }
 
     return (
-      <div>
-            <Header/>
-            <div className={styles['page-content']}>
-                <Row style={{marginTop: 20}}>
+      <MainLayout>
+            
+              <Row style={{marginTop: 20}}>
                 <Col span={6}>
                     <div><SideMenu/></div>
                 </Col>
                 <Col span={18}>
                     <div><Carousel/></div>
                 </Col>
-                </Row>
+              </Row>
                 <ProductCollection
                 title={<Typography.Title level={3} type="warning">{t("home_page.hot_recommended")}</Typography.Title>}
                 sideImage={sideImage1}
@@ -69,8 +69,6 @@ export const HomePage: React.FC = () => {
                 products={productList[2].touristRoutes}
                 />
                 <BusinessPartners/>
-            </div>
-            <Footer/>
-      </div>
+      </MainLayout>
     )
   }

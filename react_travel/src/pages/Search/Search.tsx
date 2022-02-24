@@ -1,11 +1,12 @@
 import React, {useEffect} from "react";
 import styles from './Search.module.css'
-import {Header, Footer, FilterArea, ProductList} from '../../components'
+import { FilterArea, ProductList} from '../../components'
 import { useSelector } from "../../redux/hooks";
 import { useDispatch } from "react-redux";
 import { useParams, useLocation } from 'react-router-dom'
 import { Spin } from 'antd'
 import { searchProduct } from '../../redux/productSearch/slice'
+import {MainLayout} from '../../layouts/mainLayout'
 
 interface MatchParams {
     keywords: string | undefined
@@ -47,9 +48,8 @@ export const SearchPage : React.FC = () => {
       return <div>Error：{error}</div>;
     }
 
-    return (<>
-        <Header />
-        <div className={styles['page-content']}>
+    return (
+        <MainLayout>
             <div className={styles['product-list-container']}>
                 <FilterArea />
             </div>
@@ -59,7 +59,5 @@ export const SearchPage : React.FC = () => {
                 paging={pagination}
                 onPageChange={onPageChange}/>
             </div>
-        </div>
-        <Footer />
-    </>)
+        </MainLayout>)
 }
